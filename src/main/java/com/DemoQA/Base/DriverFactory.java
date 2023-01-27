@@ -16,6 +16,11 @@ public class DriverFactory
 
 	public static DriverFactory getInstance()
 	{
+		if(instance==null)
+		{
+			instance=new DriverFactory();
+			
+		}
 		return instance;
 	}
 
@@ -37,6 +42,7 @@ public class DriverFactory
 		driver.get().close();
 		driver.remove();
 		System.out.println("closeThreadlocal method");
+		instance=null;
 	}
 
 }

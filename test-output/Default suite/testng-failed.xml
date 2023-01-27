@@ -5,9 +5,9 @@
     <classes>
       <class name="Tests.Textbox">
         <methods>
+          <include name="TC_FP_011"/>
           <include name="launchApplication"/>
           <include name="teardown"/>
-          <include name="fillAllDetails"/>
         </methods>
       </class> <!-- Tests.Textbox -->
     </classes>

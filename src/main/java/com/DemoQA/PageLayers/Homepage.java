@@ -39,7 +39,7 @@ public class Homepage
 	@FindBy(linkText="Alerts, Frame & Windows")
 	private WebElement alertsFrameWindows;
 
-	@FindBy(linkText="Widgets")
+	@FindBy(xpath="//h5[text()='Widgets']")
 	private WebElement widgets;
 
 	@FindBy(linkText="Interactions")

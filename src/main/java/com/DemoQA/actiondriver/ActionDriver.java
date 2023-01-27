@@ -8,6 +8,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.Color;
 import org.openqa.selenium.support.ui.Select;
 
 import com.DemoQA.Base.DriverFactory;
@@ -19,20 +20,41 @@ public class ActionDriver extends TestBase
 {
 	static WebDriver driver=DriverFactory.getInstance().getDriver();
 	public static Object checkElementVisibility;
-	public void sendkeysCustom(WebElement element,String fieldName,String valueToEnter)
+
+	public static void  sendkeysCustom(WebElement element,String fieldName,String valueToEnter)
 	{
 		try
 		{
 			element.sendKeys(valueToEnter);
-			ExtentReportThreadSafe.getInstance().getExtent().log(Status.PASS,"successfully entered value--valueToEnter in field "+fieldName);
+		//	ExtentReportThreadSafe.getInstance().getExtent().log(Status.PASS,"successfully entered value--valueToEnter in field "+fieldName);
 		}
 		catch(Exception e)
 		{
-			ExtentReportThreadSafe.getInstance().getExtent().log(Status.FAIL,"failed to enter value in field "+fieldName+" due to exception-->"+e);
+		//	ExtentReportThreadSafe.getInstance().getExtent().log(Status.FAIL,"failed to enter value in field "+fieldName+" due to exception-->"+e);
 
 		}
 	}
 
+	public static void  naviagteBack()
+	{
+		driver.navigate().back();
+	}
+	
+	public static String  getHexValue(WebElement element,String cssValueName)
+	{
+		String rgbValue=element.getCssValue(cssValueName);
+		
+		String hexValue=Color.fromString(rgbValue).asHex();
+		return hexValue;
+	}
+	
+	public static void  naviagteForward()
+	{
+		driver.navigate().forward();
+	}
+	
+	
+	
 	public void clickCustom(WebElement element,String fieldName,String valueToEnter)
 	{
 		try
@@ -327,6 +349,12 @@ public class ActionDriver extends TestBase
 	{
 		element.isDisplayed();
 		return true;		
+	}
+	
+	public static String getTextCustom(WebElement element) 
+	{
+		String text=element.getText();
+		return text;
 	}
 	
 	

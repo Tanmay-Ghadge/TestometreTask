@@ -1,5 +1,7 @@
 package com.DemoQA.PageLayers;
 
+import java.util.List;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -30,12 +32,37 @@ public class Elements_Textbox
 	@FindBy(css="textarea#permanentAddress")
 	private WebElement permanetAdress;
 	
-	@FindBy(xpath="//button[@id='submit']")
+	@FindBy(id="submit")
 	private WebElement submit;
 	
 	@FindBy(css="div.main-header")
 	private WebElement mainHeader;
-		
+	
+	@FindBy(id="item-0")
+	private static WebElement textboxDropdownOption;
+	
+	//console elements
+	@FindBy(id="output")
+	private static WebElement consoleOutput;
+	
+	
+
+	@FindBy(xpath="//div[@id='output']/div/p")
+	private List<WebElement> elementsOfConsole;
+	
+	@FindBy(xpath="//p[@id='name']")
+	private WebElement consoleOutputName;
+	
+	@FindBy(xpath="//p[@id='email']")
+	private WebElement consoleOutputemail;
+	
+	@FindBy(xpath="//p[@id='currentAddress']")
+	private WebElement consoleOutputCurrentAddress;
+	
+	@FindBy(xpath="//p[@id='permanentAddress']")
+	private WebElement consoleOutputPermanentAddress;
+	
+	
 	public WebDriver getLocalDriver() {
 		return localDriver;
 	}
@@ -64,7 +91,30 @@ public class Elements_Textbox
 		return mainHeader;
 	}
 
-	
+	public static WebElement getTextboxDropdownOption() {
+		return textboxDropdownOption;
+	}
+
+	public WebElement getConsoleOutputName() {
+		return consoleOutputName;
+	}
+
+	public WebElement getConsoleOutputemail() {
+		return consoleOutputemail;
+	}
+
+	public WebElement getConsoleOutputCurrentAddress() {
+		return consoleOutputCurrentAddress;
+	}
+
+	public WebElement getConsoleOutputPermanentAddress() {
+		return consoleOutputPermanentAddress;
+	}
+
+
+	public static void clicktextboxDropdownOption() {
+		textboxDropdownOption.click();		
+	}
 
 	
 	
