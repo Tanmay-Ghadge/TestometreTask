@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Fri Jan 27 23:25:15 IST 2023</td>
+<td>Started on:</td><td>Sat Jan 28 23:35:50 IST 2023</td>
 </tr>
-<tr><td>Total time:</td><td>9 seconds (9446 ms)</td>
+<tr><td>Total time:</td><td>15 seconds (15104 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -76,14 +76,15 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='Tests.Textbox.TC_FP_011()'><b>TC_FP_011</b><br>Test class: Tests.Textbox<br>Test method: verify that in email field after character '@' dot(.) Cannot be accepted</td>
-<td><div><pre>java.lang.IllegalArgumentException: No enum constant org.openqa.selenium.support.Colors.0.8PX SOLID RGB(176, 198, 227)
-	at java.base/java.lang.Enum.valueOf(Enum.java:273)
-	at org.openqa.selenium.support.Colors.valueOf(Colors.java:23)
-	at org.openqa.selenium.support.Color$NamedColorConverter.getColor(Color.java:303)
-	at org.openqa.selenium.support.Color.fromString(Color.java:46)
-	at com.DemoQA.actiondriver.ActionDriver.getHexValue(ActionDriver.java:47)
-	at Tests.Textbox.TC_FP_011(Textbox.java:191)
+<td title='Tests.RadioButton.selectNoOption()'><b>selectNoOption</b><br>Test class: Tests.RadioButton<br>Test method: Verify that user can select option no.</td>
+<td><div><pre>java.lang.AssertionError: expected [You have selected Yes] but found [You have selected Impressive]
+	at org.testng.Assert.fail(Assert.java:110)
+	at org.testng.Assert.failNotEquals(Assert.java:1577)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:149)
+	at org.testng.Assert.assertEquals(Assert.java:131)
+	at org.testng.Assert.assertEquals(Assert.java:655)
+	at org.testng.Assert.assertEquals(Assert.java:665)
+	at Tests.RadioButton.selectNoOption(RadioButton.java:142)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -112,14 +113,15 @@ function toggleAllBoxes() {
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace1714539364", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1714539364'><pre>java.lang.IllegalArgumentException: No enum constant org.openqa.selenium.support.Colors.0.8PX SOLID RGB(176, 198, 227)
-	at java.base/java.lang.Enum.valueOf(Enum.java:273)
-	at org.openqa.selenium.support.Colors.valueOf(Colors.java:23)
-	at org.openqa.selenium.support.Color$NamedColorConverter.getColor(Color.java:303)
-	at org.openqa.selenium.support.Color.fromString(Color.java:46)
-	at com.DemoQA.actiondriver.ActionDriver.getHexValue(ActionDriver.java:47)
-	at Tests.Textbox.TC_FP_011(Textbox.java:191)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1481853275", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1481853275'><pre>java.lang.AssertionError: expected [You have selected Yes] but found [You have selected Impressive]
+	at org.testng.Assert.fail(Assert.java:110)
+	at org.testng.Assert.failNotEquals(Assert.java:1577)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:149)
+	at org.testng.Assert.assertEquals(Assert.java:131)
+	at org.testng.Assert.assertEquals(Assert.java:655)
+	at org.testng.Assert.assertEquals(Assert.java:665)
+	at Tests.RadioButton.selectNoOption(RadioButton.java:142)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -150,7 +152,7 @@ function toggleAllBoxes() {
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
 <td>2</td>
-<td>Tests.Textbox@1ebd319f</td></tr>
+<td>Tests.RadioButton@762ef0ea</td></tr>
 </table><p>
 </body>
 </html>

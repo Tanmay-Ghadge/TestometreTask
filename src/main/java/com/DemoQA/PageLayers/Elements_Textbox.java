@@ -20,6 +20,9 @@ public class Elements_Textbox
 		PageFactory.initElements(rdriver,this );
 	}
 
+	@FindBy(xpath="//*[@id=\"app\"]/header/a")
+	private WebElement logo;
+	
 	@FindBy(id="userName")
 	private WebElement fullName;
 	
@@ -41,11 +44,20 @@ public class Elements_Textbox
 	@FindBy(id="item-0")
 	private static WebElement textboxDropdownOption;
 	
+	@FindBy(id="item-1")
+	private static WebElement checkboxDropdownOption ;
+	
+	@FindBy(id="item-2")
+	private static WebElement radiobuttonDropdownOption;
+	
+	@FindBy(id="item-4")
+	private static WebElement buttonsDropdownOption;
+	
+	
+	
 	//console elements
 	@FindBy(id="output")
 	private static WebElement consoleOutput;
-	
-	
 
 	@FindBy(xpath="//div[@id='output']/div/p")
 	private List<WebElement> elementsOfConsole;
@@ -61,6 +73,7 @@ public class Elements_Textbox
 	
 	@FindBy(xpath="//p[@id='permanentAddress']")
 	private WebElement consoleOutputPermanentAddress;
+	
 	
 	
 	public WebDriver getLocalDriver() {
@@ -116,6 +129,14 @@ public class Elements_Textbox
 		textboxDropdownOption.click();		
 	}
 
+	public static void clickradiobuttonDropdownOption() {
+		radiobuttonDropdownOption.click();		
+	}
+
+	public void clickLogo() {
+		logo.click();	
+
+	}
 	
 	
 	

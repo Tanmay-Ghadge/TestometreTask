@@ -25,6 +25,27 @@ public class Elements_RadioButtons
 	@FindBy(id="noRadio")
 	private WebElement noRadioOption;
 	
+	@FindBy(xpath="//p[@class='mt-3']")
+	private WebElement radioBoxConsole;
+	
+
+	public WebElement getYesRadioOption() {
+		return yesRadioOption;
+	}
+
+	public WebElement getImpressiveRadioOption() {
+		return impressiveRadioOption;
+	}
+
+	public WebElement getNoRadioOption() {
+		return noRadioOption;
+	}
+
+	public WebElement getRadioBoxConsole() {
+		return radioBoxConsole;
+	}
+	
+	
 	
 	
 	
