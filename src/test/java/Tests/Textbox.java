@@ -83,7 +83,7 @@ public class Textbox extends TestBase
 		String currentAdress=ActionDriver.getTextCustom(ElementsTextbox.getConsoleOutputCurrentAddress());
 		String permanentAddress=ActionDriver.getTextCustom(ElementsTextbox.getConsoleOutputPermanentAddress());
 		System.out.println(name);
-		
+
 		if(name.equals("Tanmay Shivajirao Ghadge"))
 			softAssert.assertTrue(true);
 		else
@@ -113,7 +113,7 @@ public class Textbox extends TestBase
 		Homepage homepage=new Homepage(driver); 
 		Elements_Textbox ElementsTextbox=new Elements_Textbox(driver);
 		SoftAssert softAssert=new SoftAssert();
-		
+
 		ActionDriver.scrollByDistance(0,400);
 		Thread.sleep(2000);
 		homepage.clickElement();
@@ -131,7 +131,7 @@ public class Textbox extends TestBase
 
 		if(currentAdress.equals(permanentAddress))
 		{
-			Assert.assertTrue(true);
+			Assert .assertTrue(true);
 		}
 		else
 		{
@@ -147,53 +147,119 @@ public class Textbox extends TestBase
 		Homepage homepage=new Homepage(driver); 
 		Elements_Textbox ElementsTextbox=new Elements_Textbox(driver);
 		SoftAssert softAssert=new SoftAssert();
-		
+
 		ActionDriver.scrollByDistance(0,400);
 		Thread.sleep(2000);
 		homepage.clickElement();
 		Elements_Textbox.clicktextboxDropdownOption();
-		
+
 		ActionDriver.sendkeysCustom(ElementsTextbox.getFullName(),"full name", "Tanmay Shivajirao Ghadge");
 		ActionDriver.sendkeysCustom(ElementsTextbox.getEmail(),"email", "Tanmay@gmail.co");
 		Thread.sleep(2000);
-		
+
 		ActionDriver.naviagteBack();
 		Thread.sleep(2000);
-		
+
 		ActionDriver.naviagteForward();
 		Thread.sleep(2000);
-		
+
 		if(ElementsTextbox.getFullName().isDisplayed())
 		{
 			System.out.println("is value inside that field is present");
 		}
-		
+
 	}
-		
-	
+
+
 	@Test(description = "verify that in email field after character '@' dot(.) Cannot be accepted")
 	void TC_FP_011() throws InterruptedException
 	{
 		Homepage homepage=new Homepage(driver); 
 		Elements_Textbox ElementsTextbox=new Elements_Textbox(driver);
 		SoftAssert softAssert=new SoftAssert();
-		
+
 		ActionDriver.scrollByDistance(0,400);
 		Thread.sleep(2000);
 		homepage.clickElement();
 		Elements_Textbox.clicktextboxDropdownOption();
-		
-		
+
+
 		ActionDriver.sendkeysCustom(ElementsTextbox.getEmail(),"email", "Tanmay@.gmail.co");
 		ActionDriver.scrollByDistance(0,400);
 		ActionDriver.clickWebeElement(ElementsTextbox.getSubmit());
-		
+
 		System.out.println(ActionDriver.getHexValue(ElementsTextbox.getEmail(), "border"));
-		
-//java.lang.IllegalArgumentException: No enum constant org.openqa.selenium.support.Colors.0.8PX SOLID RGB(176, 198, 227)
-		
-		
-		
-		
+
+		//java.lang.IllegalArgumentException: No enum constant org.openqa.selenium.support.Colors.0.8PX SOLID RGB(176, 198, 227)
+
 	}
+
+	@Test(description = "verify that in email field after character '@' dot(.) Cannot be accepted")
+	void TC_FP_013() throws InterruptedException
+	{
+		Homepage homepage=new Homepage(driver); 
+		Elements_Textbox ElementsTextbox=new Elements_Textbox(driver);
+		SoftAssert softAssert=new SoftAssert();
+
+		ActionDriver.scrollByDistance(0,400);
+		Thread.sleep(2000);
+		homepage.clickElement();
+		Elements_Textbox.clicktextboxDropdownOption();
+
+
+		ActionDriver.sendkeysCustom(ElementsTextbox.getEmail(),"email", "@.gmail.co");
+		ActionDriver.scrollByDistance(0,400);
+		ActionDriver.clickWebeElement(ElementsTextbox.getSubmit());
+
+		System.out.println(ActionDriver.getHexValue(ElementsTextbox.getEmail(), "border"));
+
+		//java.lang.IllegalArgumentException: No enum constant org.openqa.selenium.support.Colors.0.8PX SOLID RGB(176, 198, 227)
+	}
+
+	@Test(description = "verify that proper placeholders are present for each field")
+	void TC_FP_014() throws InterruptedException
+	{
+		Homepage homepage=new Homepage(driver); 
+		Elements_Textbox ElementsTextbox=new Elements_Textbox(driver);
+		SoftAssert softAssert=new SoftAssert();
+
+		ActionDriver.scrollByDistance(0,400);
+		Thread.sleep(2000);
+		homepage.clickElement();
+		Elements_Textbox.clicktextboxDropdownOption();
+
+		String fullName=ActionDriver.getPlaceholderName(ElementsTextbox.getFullName());
+		String email=ActionDriver.getPlaceholderName(ElementsTextbox.getEmail());
+		String currentAddress=ActionDriver.getPlaceholderName(ElementsTextbox.getCurrentAdress());
+		String permanentAddress=ActionDriver.getPlaceholderName(ElementsTextbox.getPermanetAdress());
+
+		softAssert.assertEquals(fullName, "Full Name");
+		softAssert.assertEquals(email, "Email");
+		softAssert.assertEquals(currentAddress, "Current Address");
+		softAssert.assertEquals(permanentAddress, "Permanent Address");
+
+		softAssert.assertAll();
+	}
+
+	@Test(description = "Verify when clicked on logo user should land on Homepage",groups = {"smoke"})
+	void TC_FP_017() throws InterruptedException
+	{
+		Homepage homepage=new Homepage(driver); 
+		Elements_Textbox ElementsTextbox=new Elements_Textbox(driver);
+		SoftAssert softAssert=new SoftAssert();
+
+		ActionDriver.scrollByDistance(0,400);
+		Thread.sleep(2000);
+		homepage.clickElement();
+
+		ElementsTextbox.clickLogo();
+		String actualTitle=ActionDriver.getpageTitle();
+		
+		Assert.assertEquals(actualTitle, "DEMOQA");
+
+	}
+
+	
+
+
 }

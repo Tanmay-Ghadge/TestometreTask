@@ -59,7 +59,7 @@ public class Homepage
 	public boolean pageValidation(WebDriver driver)
 	{
 		String actualTitle=driver.getTitle();
-		String expectedTitle="ToolsQA";
+		String expectedTitle="DEMOQA";
 
 
 		if(actualTitle.equals(expectedTitle))

@@ -53,7 +53,11 @@ public class ActionDriver extends TestBase
 		driver.navigate().forward();
 	}
 	
-	
+	public static String  getPlaceholderName(WebElement element)
+	{
+		String placeholder=element.getAttribute("placeholder");
+		return placeholder;
+	}
 	
 	public void clickCustom(WebElement element,String fieldName,String valueToEnter)
 	{
@@ -81,7 +85,20 @@ public class ActionDriver extends TestBase
 			return false;
 		}
 	}
+	
+	public static String getpageTitle()
+	{
+		String actualPageTitle=driver.getTitle();
+		return actualPageTitle;
+	}
 
+	public static void jsClick(WebElement element)
+	{
+		JavascriptExecutor j = (JavascriptExecutor) driver;
+		j.executeScript("arguments[0].click();",element);
+	}
+
+	
 	public static boolean dropdownSelectByValue(WebElement locationOfDropdown,String value)
 	{
 		boolean flag = false;
