@@ -2,11 +2,14 @@ package com.DemoQA.actiondriver;
 import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.InputEvent;
+import java.awt.event.KeyEvent;
 import java.util.List;
 
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.Color;
 import org.openqa.selenium.support.ui.Select;
@@ -26,11 +29,11 @@ public class ActionDriver extends TestBase
 		try
 		{
 			element.sendKeys(valueToEnter);
-		//	ExtentReportThreadSafe.getInstance().getExtent().log(Status.PASS,"successfully entered value--valueToEnter in field "+fieldName);
+			//	ExtentReportThreadSafe.getInstance().getExtent().log(Status.PASS,"successfully entered value--valueToEnter in field "+fieldName);
 		}
 		catch(Exception e)
 		{
-		//	ExtentReportThreadSafe.getInstance().getExtent().log(Status.FAIL,"failed to enter value in field "+fieldName+" due to exception-->"+e);
+			//	ExtentReportThreadSafe.getInstance().getExtent().log(Status.FAIL,"failed to enter value in field "+fieldName+" due to exception-->"+e);
 
 		}
 	}
@@ -39,26 +42,26 @@ public class ActionDriver extends TestBase
 	{
 		driver.navigate().back();
 	}
-	
+
 	public static String  getHexValue(WebElement element,String cssValueName)
 	{
 		String rgbValue=element.getCssValue(cssValueName);
-		
+
 		String hexValue=Color.fromString(rgbValue).asHex();
 		return hexValue;
 	}
-	
+
 	public static void  naviagteForward()
 	{
 		driver.navigate().forward();
 	}
-	
+
 	public static String  getPlaceholderName(WebElement element)
 	{
 		String placeholder=element.getAttribute("placeholder");
 		return placeholder;
 	}
-	
+
 	public void clickCustom(WebElement element,String fieldName,String valueToEnter)
 	{
 		try
@@ -85,7 +88,7 @@ public class ActionDriver extends TestBase
 			return false;
 		}
 	}
-	
+
 	public static String getpageTitle()
 	{
 		String actualPageTitle=driver.getTitle();
@@ -98,7 +101,7 @@ public class ActionDriver extends TestBase
 		j.executeScript("arguments[0].click();",element);
 	}
 
-	
+
 	public static boolean dropdownSelectByValue(WebElement locationOfDropdown,String value)
 	{
 		boolean flag = false;
@@ -297,9 +300,7 @@ public class ActionDriver extends TestBase
 
 	}
 
-	/*
-	 * public static boolean actionClick(WebElement elementToClick)
-	
+	  public static boolean actionClick(WebElement elementToClick)
 	{
 		boolean flag=false;
 		try 
@@ -315,8 +316,8 @@ public class ActionDriver extends TestBase
 		return flag;
 
 	}
-*/
-	public static void scrollByVisibilityOfElement(WebDriver driver, WebElement ele)
+
+	  public static void scrollByVisibilityOfElement(WebDriver driver, WebElement ele)
 	{
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView();", ele);
@@ -367,13 +368,52 @@ public class ActionDriver extends TestBase
 		element.isDisplayed();
 		return true;		
 	}
-	
+
 	public static String getTextCustom(WebElement element) 
 	{
 		String text=element.getText();
 		return text;
 	}
-	
-	
+
+	public static void pressEnterRobot() throws AWTException 
+	{
+		Robot robot=new Robot();
+
+		robot.keyPress(KeyEvent.VK_ENTER);
+		robot.keyRelease(KeyEvent.VK_ENTER);
+	}
+
+	public static void robotBackspace() throws AWTException 
+	{
+		Robot robot=new Robot();
+
+		robot.keyPress(KeyEvent.VK_BACK_SPACE);
+	}
+
+
+	public static void actionEnter() throws AWTException 
+	{
+		Actions act = new Actions(driver);
+		act.keyDown(Keys.ENTER).keyUp(Keys.ENTER).perform();
+
+	}
+
+
+
+	public static String actionGetAttribute(WebElement element, String attributeName)
+	{
+		return element.getAttribute(attributeName);
+	}
+
+	public static void actionMove(WebElement element) 
+	{
+		Actions act = new Actions(driver);
+
+		act.moveToElement(element)
+		.keyDown(Keys.BACK_SPACE).perform();		
+	}
+
+
+
 
 }
