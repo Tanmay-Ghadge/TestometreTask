@@ -1,4 +1,4 @@
-package Tests;
+package tests;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -7,6 +7,7 @@ import org.testng.asserts.SoftAssert;
 
 import com.DemoQA.Base.DriverFactory;
 import com.DemoQA.Base.TestBase;
+import com.DemoQA.PageLayers.Elements_Checkbox;
 import com.DemoQA.PageLayers.Elements_Textbox;
 import com.DemoQA.PageLayers.Homepage;
 import com.DemoQA.PageLayers.Elements_Textbox;
@@ -254,12 +255,29 @@ public class Textbox extends TestBase
 
 		ElementsTextbox.clickLogo();
 		String actualTitle=ActionDriver.getpageTitle();
-		
+
 		Assert.assertEquals(actualTitle, "DEMOQA");
 
 	}
 
-	
+	@Test(description = "verify that user is able to reach checkbox section",groups = {"smoke"})
+	void checkboxOpened() throws InterruptedException
+	{
+		Homepage homepage=new Homepage(driver); 
+		Elements_Textbox ElementsTextbox=new Elements_Textbox(driver);
+		Elements_Checkbox checkbox=new Elements_Checkbox(driver);
+		SoftAssert softAssert=new SoftAssert();
+
+		ActionDriver.scrollByDistance(0,400);
+		Thread.sleep(2000);
+		homepage.clickElement();
+		checkbox.getcheckboxDropdownOption().click();
+		//checkbox.getHomeSVG().click();
+		checkbox.getHomedownArrow().click();
+		Thread.sleep(5000);
+	}
+
+
 
 
 }

@@ -30,10 +30,13 @@ public class Homepage
 		PageFactory.initElements(rdriver,this );
 	}
 
-	@FindBy(css="div.body-height:nth-child(2) div.home-content div.home-body div.category-cards div.card.mt-4.top-card:nth-child(1) div:nth-child(1) div.avatar.mx-auto.white > svg:nth-child(1)")
-	private WebElement elements;
-
-	@FindBy(linkText="Forms")
+	@FindBy(xpath="//h5[text()='Elements']")
+	private static WebElement elements;
+	
+	@FindBy(xpath="//h5[contains(text(),'Elements')]")
+	private WebElement elements2;
+	
+	@FindBy(xpath="//h5[text()='Forms']")
 	private WebElement forms;
 
 	@FindBy(linkText="Alerts, Frame & Windows")
@@ -77,7 +80,20 @@ public class Homepage
 	{
 		elements.click();
 	}
+	
+	public void clickElement2()
+	{
+		elements2.click();
+	}
+	
+	public static WebElement getelements()
+	{
+		return elements;
+	}
 
+	
+	
+	
 	public void clickForms()
 	{
 		forms.click();
@@ -170,11 +186,10 @@ public class Homepage
 			System.err.println("please enter valid element name to click ");
 		}
 		
-		
-		
 	}
 
-
+	
+	
 
 
 }
