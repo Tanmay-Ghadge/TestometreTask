@@ -7,7 +7,7 @@
         <methods>
           <include name="launchApplication"/>
           <include name="teardown"/>
-          <include name="checkboxOpened"/>
+          <include name="isAnyChecdkboxOdptionSeected"/>
         </methods>
       </class> <!-- tests.Textbox -->
     </classes>

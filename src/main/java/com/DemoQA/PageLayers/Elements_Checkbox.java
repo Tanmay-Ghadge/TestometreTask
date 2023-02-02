@@ -20,74 +20,206 @@ public class Elements_Checkbox
 	@FindBy(id="item-1")
 	private WebElement checkboxDropdownOption;
 	
+	//Home
 	@FindBy(xpath="//span[text()='Home']")
 	private WebElement homeAllOptions;
 	
 	@FindBy(xpath="//div[@id='tree-node']/ol/li/ol/li")
 	private List <WebElement> homeOptionsList;
 	
-	//-----------------------------
-	
-	@FindBy(xpath="//span[text()='Desktop']")
-	private WebElement desktopAllOptions;
-	
-	@FindBy(xpath="//div[@id='tree-node']/ol/li/ol/li[1]/ol/li/span/label/span[2]")
-	private List <WebElement> desktopAllOptionslist;
 
-	//-----------------------------
-	
-	@FindBy(xpath="//span[text()='Documents']")
-	private WebElement DocumentsAllOptions;
-	
-	@FindBy(xpath="//div[@id='tree-node']/ol/li/ol/li[2]/ol/li/ol/li/span/label/span[2]")
-	private  List <WebElement> DocumentsfirstAllOptionsList;
-	
-	@FindBy(xpath="//div[@id='tree-node']/ol/li/ol/li[2]/ol/li/ol/li/span/label/span[2]")
-	private List <WebElement>  DocumentssecondAllOptionsList;
-	
-	
-	//---------------------------------------------------
-	@FindBy(xpath="//span[text()='Downloads']")
-	private WebElement DownloadsAllOptions;
-	
-	@FindBy(xpath="//div[@id='tree-node']/ol/li/ol/li[3]/ol/li/span/label/span[2]")
-	private  List <WebElement> DownloadsAllOptionsList;
-	
-	
-	
-//------------------------	
 	
 	@FindBy(xpath="//body/div[@id='app']/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/ol[1]/li[1]/span[1]/button[1]")
 	private WebElement homedownArrow;
-
+	
+	@FindBy(xpath="//body/div[@id='app']/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/ol[1]/li[1]")
+	private WebElement homeExpandedCollapse;
+	
+	
+	//-----------------------------
+	
+	//Desktop
+	@FindBy(xpath="//span[text()='Desktop']")
+	private WebElement desktopAllOptions;
+	
+	@FindBy(xpath="//div[@id='tree-node']/ol/li/ol/li[1]/ol/li/span/label/span[3]")
+	private List <WebElement> desktopAllOptionslist;
+	//div[@id='tree-node']/ol/li/ol/li[1]/ol/li/span/label/span[2]
+	
+	@FindBy(xpath="//body/div[@id='app']/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/ol[1]/li[1]/ol[1]/li[1]")
+	private WebElement desktopExpandedCollapse;
+	
 	@FindBy(xpath="//body/div[@id='app']/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/ol[1]/li[1]/ol[1]/li[1]/span[1]/button[1]")
 	private WebElement desktopArrow;	
+	
+	//-----------------------------
+	
+	//Document 
+	@FindBy(xpath="//span[text()='Documents']")
+	private WebElement DocumentsAllOptions;
+	
+	@FindBy(xpath="//body/div[@id='app']/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/ol[1]/li[1]/ol[1]/li[2]/ol/li/span/label/span[3]")
+	private List <WebElement> DocumentsAllOptionsList;
+	
+	@FindBy(xpath="//body/div[@id='app']/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/ol[1]/li[1]/ol[1]/li[2]/ol[1]/li[1]/ol/li/span/label/span[3]")
+	private  List <WebElement> DocumentsfirstAllOptionsList;
+	
+	
+	
+	@FindBy(xpath="//body/div[@id='app']/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/ol[1]/li[1]/ol[1]/li[2]/ol[1]/li[2]/ol/li/span/label/span[3]")
+	private List <WebElement>  DocumentsOfficeAllOptionsList;
+	
+	@FindBy(xpath="//body/div[@id='app']/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/ol[1]/li[1]/ol[1]/li[2]")
+	private WebElement documentExpandedCollapse;
+	
+	@FindBy(xpath="//body/div[@id='app']/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/ol[1]/li[1]/ol[1]/li[2]/ol[1]/li[1]")
+	private WebElement documentWorkspaceExpandedCollapse;
+	
+	@FindBy(xpath="//body/div[@id='app']/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/ol[1]/li[1]/ol[1]/li[2]/ol[1]/li[2]")
+	private WebElement documentOfficeExpandedCollapse;
 	
 	@FindBy(xpath="//body/div[@id='app']/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/ol[1]/li[1]/ol[1]/li[2]/span[1]/button[1]")
 	private WebElement documentArrow;
 	
+	@FindBy(xpath="//body/div[@id='app']/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/ol[1]/li[1]/ol[1]/li[2]/ol[1]/li[1]/span[1]/button[1]")
+	private WebElement documentWorkspaceArrow;
+	
+	@FindBy(xpath="//body/div[@id='app']/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/ol[1]/li[1]/ol[1]/li[2]/ol[1]/li[2]/span[1]/button[1]")
+	private WebElement documentOfficeArrow;
+	
+	
+	
+	
+	
+	
+//---------------------------------------------------
+	// Downloads
+	
+
+
+	@FindBy(xpath="//span[text()='Downloads']")
+	private WebElement DownloadsAllOptions;
+	
+	@FindBy(xpath="//div[@id='tree-node']/ol/li/ol/li[3]/ol/li/span/label/span[3]")
+	private  List <WebElement> DownloadsAllOptionsList;
+	
 	@FindBy(xpath="//body/div[@id='app']/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/ol[1]/li[1]/ol[1]/li[3]/span[1]/button[1]")
 	private WebElement downloadArrow;
 	
-	//--------------
+	@FindBy(xpath="//body/div[@id='app']/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/ol[1]/li[1]/ol[1]/li[3]")
+	private WebElement downloadExpandedCollapse;
 	
-	
-	
-	
-	
-	//body/div[@id='app']/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/ol[1]/li[1]/ol[1]/li[2]/span[1]/button[1]
+//-------------------test method----------------------	
 	
 	public WebElement getcheckboxDropdownOption() {
 		return checkboxDropdownOption;
 	}
 	
-	
 	public WebElement getHomedownArrow() {
 		return homedownArrow;
 	}
 	
+	public WebElement getHomeAllOptions() {
+		return homeAllOptions;
+	}
+
+
+	public List<WebElement> getHomeOptionsList() {
+		return homeOptionsList;
+	}
+
+
+	public WebElement getDesktopAllOptions() {
+		return desktopAllOptions;
+	}
+
+
+	public List<WebElement> getDesktopAllOptionslist() {
+		return desktopAllOptionslist;
+	}
+
+
+	public WebElement getDocumentsAllOptions() {
+		return DocumentsAllOptions;
+	}
+
+
+	public List<WebElement> getDocumentsWorkspaceAllOptionsList() {
+		return DocumentsfirstAllOptionsList;
+	}
+
+
+	public List<WebElement> getDocumentsOfficeAllOptionsList() {
+		return DocumentsOfficeAllOptionsList;
+	}
+
+
+	public WebElement getDownloadsAllOptions() {
+		return DownloadsAllOptions;
+	}
+
+
+	public List<WebElement> getDownloadsAllOptionsList() {
+		return DownloadsAllOptionsList;
+	}
+
+
+	public WebElement getDesktopArrow() {
+		return desktopArrow;
+	}
+
+
+	public WebElement getDocumentArrow() {
+		return documentArrow;
+	}
+
+
+	public WebElement getDownloadArrow() {
+		return downloadArrow;
+	}
 	
+	public WebElement getCheckboxDropdownOption() {
+		return checkboxDropdownOption;
+	}
+
+	public WebElement getHomeExpandedCollapse() {
+		return homeExpandedCollapse;
+	}
+
+	public WebElement getDesktopExpandedCollapse() {
+		return desktopExpandedCollapse;
+	}
+
+	public WebElement getDocumentExpandedCollapse() {
+		return documentExpandedCollapse;
+	}
+
+	public WebElement getDocumentWorkspaceExpandedCollapse() {
+		return documentWorkspaceExpandedCollapse;
+	}
 	
+	public List<WebElement> getDocumentsAllOptionsList() {
+		return DocumentsAllOptionsList;
+	}
 	
-	
+	public WebElement getDocumentOfficeExpandedCollapse() {
+		return documentOfficeExpandedCollapse;
+	}
+
+	public WebElement getDownloadExpandedCollapse() {
+		return downloadExpandedCollapse;
+	}
+
+
+	public List<WebElement> getDocumentsfirstAllOptionsList() {
+		return DocumentsfirstAllOptionsList;
+	}
+
+	public WebElement getDocumentWorkspaceArrow() {
+		return documentWorkspaceArrow;
+	}
+
+	public WebElement getDocumentOfficeArrow() {
+		return documentOfficeArrow;
+	}
 }

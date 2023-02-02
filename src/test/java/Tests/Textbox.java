@@ -1,6 +1,9 @@
 package tests;
 
+import java.util.List;
+
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
@@ -276,6 +279,244 @@ public class Textbox extends TestBase
 		checkbox.getHomedownArrow().click();
 		Thread.sleep(5000);
 	}
+
+	@Test(description = "verify that by default no option should be selected",groups = {"smoke"})
+	void isAnyCheckboxOptionSelected() throws InterruptedException
+	{
+		Homepage homepage=new Homepage(driver); 
+		Elements_Textbox ElementsTextbox=new Elements_Textbox(driver);
+		Elements_Checkbox checkbox=new Elements_Checkbox(driver);
+		SoftAssert softAssert=new SoftAssert();
+
+		ActionDriver.scrollByDistance(0,400);
+		Thread.sleep(2000);
+		homepage.clickElement();
+		checkbox.getcheckboxDropdownOption().click();;
+
+		checkbox.getHomedownArrow().click();
+
+		boolean home=checkbox.getHomeAllOptions().isSelected();
+		boolean desktop=checkbox.getDesktopAllOptions().isSelected();
+		boolean document=checkbox.getDocumentsAllOptions().isSelected();
+		boolean download=checkbox.getDownloadsAllOptions().isSelected();
+
+		if(home==false && desktop==false && document==false && download==false)
+		{
+			Assert.assertTrue(true);
+		}
+		else
+		{
+			Assert.assertTrue(false);
+		}
+		Thread.sleep(5000);
+	}
+
+	@Test(description = "verify that by default no option should be selected",groups = {"smoke"})
+	void isAnyCheckboxOptionSeected() throws InterruptedException
+	{
+		Homepage homepage=new Homepage(driver); 
+		Elements_Textbox ElementsTextbox=new Elements_Textbox(driver);
+		Elements_Checkbox checkbox=new Elements_Checkbox(driver);
+		SoftAssert softAssert=new SoftAssert();
+
+		ActionDriver.scrollByDistance(0,400);
+		Thread.sleep(2000);
+
+		homepage.clickElement();
+		Thread.sleep(2000);
+		checkbox.getcheckboxDropdownOption().click();;
+
+		String homeValue=ActionDriver.actionGetAttribute(checkbox.getHomeExpandedCollapse(),"class");
+
+		checkbox.getHomedownArrow().click();
+		String desktop=ActionDriver.actionGetAttribute(checkbox.getDesktopExpandedCollapse(),"class");
+		String document=ActionDriver.actionGetAttribute(checkbox.getDocumentExpandedCollapse(),"class");
+		String download=ActionDriver.actionGetAttribute(checkbox.getDownloadExpandedCollapse(),"class");
+
+
+		if(homeValue.contains("expanded") && desktop.contains("expanded")
+				&& document.contains("expanded") && download.contains("expanded")		)
+			Assert.assertTrue(false);
+		else
+			Assert.assertTrue(true);
+	}
+
+	@Test(description = "Verify that when clicked on home expand arrow only folders should be displayed "
+			+ "and not the sub-folders or files should be displayed verify that by default no option should be selected",groups = {"smoke"})
+	void isAnyCheckboxOdptionSeected() throws InterruptedException
+	{
+		Homepage homepage=new Homepage(driver); 
+		Elements_Textbox ElementsTextbox=new Elements_Textbox(driver);
+		Elements_Checkbox checkbox=new Elements_Checkbox(driver);
+		SoftAssert softAssert=new SoftAssert();
+
+		ActionDriver.scrollByDistance(0,400);
+		Thread.sleep(2000);
+
+		homepage.clickElement();
+		Thread.sleep(2000);
+		checkbox.getcheckboxDropdownOption().click();
+
+		checkbox.getHomedownArrow().click();
+		boolean desktop=checkbox.getDesktopAllOptions().isDisplayed();
+		boolean document=checkbox.getDocumentsAllOptions().isDisplayed();
+		boolean ddownload=checkbox.getDownloadsAllOptions().isDisplayed();
+
+		System.out.println(desktop);
+		System.out.println(document);
+		System.out.println(ddownload);
+
+		//	checkbox.getDesktopArrow().click();
+		List<WebElement> desktoOptions=checkbox.getDesktopAllOptionslist();
+
+		for(WebElement desktoOption : desktoOptions)
+		{
+			boolean flag=desktoOption.isEnabled();
+			System.out.println(flag);
+			Assert.assertTrue(flag);
+			System.out.println("----------");
+		}
+
+	}
+
+	@Test(description = "select Home > Documents> Office >private",groups = {"smoke"})
+	void isAnyChecdkboxOdptionSeected() throws InterruptedException
+	{
+		Homepage homepage=new Homepage(driver); 
+		Elements_Textbox ElementsTextbox=new Elements_Textbox(driver);
+		Elements_Checkbox checkbox=new Elements_Checkbox(driver);
+		SoftAssert softAssert=new SoftAssert();
+
+		ActionDriver.scrollByDistance(0,400);
+		Thread.sleep(2000);
+
+		homepage.clickElement();
+		Thread.sleep(2000);
+		checkbox.getcheckboxDropdownOption().click();
+
+		checkbox.getHomedownArrow().click();
+		List<WebElement> homeOptions=checkbox.getHomeOptionsList();
+
+		for(WebElement homeOption : homeOptions)
+		{
+			String text=homeOption.getText();
+
+			if(text.contains("Desktop"))
+			{
+				checkbox.getDesktopArrow().click();
+				List<WebElement> desktopOptions=checkbox.getDesktopAllOptionslist();
+
+				for(WebElement desktopOption : desktopOptions)
+				{
+					String desktopText=desktopOption.getText();
+
+					if(desktopText.equals("Nots"))
+					{
+						desktopOption.click();
+						break;
+					}
+					else
+					{
+						System.out.println("No option from Desktop was seleced");
+					}
+				}
+			}
+
+			else if(text.contains("Documents"))
+			{
+				checkbox.getDocumentArrow().click();
+				List<WebElement> documentAllOptions=checkbox.getDocumentsAllOptionsList();
+
+				for(WebElement documentAllOption : documentAllOptions)
+				{
+					String documentText=documentAllOption.getText();
+					if(documentText.contains("WorkSpace"))
+					{
+						checkbox.getDocumentWorkspaceArrow().click();					
+						List<WebElement> workspaceAllOptions=checkbox.getDocumentsWorkspaceAllOptionsList();
+						ActionDriver.scrollByDistance(0,400);
+						for(WebElement workspaceAllOption : workspaceAllOptions)
+						{
+							String documentOptionName=workspaceAllOption.getText();
+							if(documentOptionName.contains("Reat"))
+							{
+								workspaceAllOption.click();
+								break;
+							}
+							else
+							{
+								System.out.println("No option from Document-Workspace was seleced");
+							}
+						}
+					}
+					else if(documentText.contains("Office"))
+					{
+						checkbox.getDocumentOfficeArrow().click();
+						List<WebElement> officeAllOptions=checkbox.getDocumentsOfficeAllOptionsList();
+
+						for(WebElement officeOption : officeAllOptions)
+						{
+							String officeOptionName=officeOption.getText();
+							if(officeOptionName.contains("Classified"))
+							{
+								officeOption.click();
+								break;
+							}
+							else
+							{
+								System.out.println("No option from Document-Office was seleced");
+							}
+						}
+					}
+				}
+			}
+
+			else if(text.contains("Downloads"))
+			{
+				checkbox.getDownloadArrow().click();
+				List<WebElement> downloadOptions=checkbox.getDownloadsAllOptionsList();
+
+				for(WebElement downloadOption : downloadOptions)
+				{
+					String downloadText=downloadOption.getText();
+
+					if(downloadText.contains("oguacjb"))
+					{
+						downloadOption.click();
+						break;
+					}
+					else
+					{
+						System.out.println("No option from Download was seleced");
+					}
+				}
+			}
+
+		}
+
+
+		Thread.sleep(10000);
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
