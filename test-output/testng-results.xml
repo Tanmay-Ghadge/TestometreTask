@@ -1,28 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="9" total="10" passed="1" failed="0" skipped="0">
+<testng-results ignored="5" total="6" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-02-01T22:08:53 IST" name="Default suite" finished-at="2023-02-01T22:09:47 IST" duration-ms="54171">
+  <suite started-at="2023-02-04T23:30:29 IST" name="Default suite" finished-at="2023-02-04T23:30:50 IST" duration-ms="20647">
     <groups>
-      <group name="smoke">
-        <method signature="Textbox.checkboxOpened()[pri:0, instance:tests.Textbox@1ebd319f]" name="checkboxOpened" class="tests.Textbox"/>
-      </group> <!-- smoke -->
     </groups>
-    <test started-at="2023-02-01T22:08:53 IST" name="Default test" finished-at="2023-02-01T22:09:47 IST" duration-ms="54171">
-      <class name="tests.Textbox">
-        <test-method is-config="true" signature="launchApplication()[pri:0, instance:tests.Textbox@1ebd319f]" started-at="2023-02-01T22:08:53 IST" name="launchApplication" finished-at="2023-02-01T22:09:39 IST" duration-ms="46537" status="PASS">
+    <test started-at="2023-02-04T23:30:29 IST" name="Default test" finished-at="2023-02-04T23:30:50 IST" duration-ms="20647">
+      <class name="tests.Webtable">
+        <test-method is-config="true" signature="launchApplication()[pri:0, instance:tests.Webtable@3270d194]" started-at="2023-02-04T23:30:29 IST" name="launchApplication" finished-at="2023-02-04T23:30:40 IST" duration-ms="11011" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- launchApplication -->
-        <test-method signature="checkboxOpened()[pri:0, instance:tests.Textbox@1ebd319f]" started-at="2023-02-01T22:09:39 IST" name="checkboxOpened" description="verify that user is able to reach checkbox section" finished-at="2023-02-01T22:09:47 IST" duration-ms="7319" status="PASS">
+        <test-method signature="checkAddPaged()[pri:0, instance:tests.Webtable@3270d194]" started-at="2023-02-04T23:30:40 IST" name="checkAddPaged" description="Verify that when clicked on add button registration form should appear on the screen" finished-at="2023-02-04T23:30:50 IST" duration-ms="9158" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- checkboxOpened -->
-        <test-method is-config="true" signature="teardown()[pri:0, instance:tests.Textbox@1ebd319f]" started-at="2023-02-01T22:09:47 IST" name="teardown" finished-at="2023-02-01T22:09:47 IST" duration-ms="265" status="PASS">
+        </test-method> <!-- checkAddPaged -->
+        <test-method is-config="true" signature="teardown()[pri:0, instance:tests.Webtable@3270d194]" started-at="2023-02-04T23:30:50 IST" name="teardown" finished-at="2023-02-04T23:30:50 IST" duration-ms="415" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardown -->
-      </class> <!-- tests.Textbox -->
+      </class> <!-- tests.Webtable -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

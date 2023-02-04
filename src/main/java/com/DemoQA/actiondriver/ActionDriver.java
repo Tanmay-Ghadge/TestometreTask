@@ -395,11 +395,20 @@ public class ActionDriver extends TestBase
 	{
 		Actions act = new Actions(driver);
 		act.keyDown(Keys.ENTER).keyUp(Keys.ENTER).perform();
-
 	}
-
-
-
+	
+	public static void doubleClick(WebElement element) 
+	{
+		Actions act = new Actions(driver);
+		act.moveToElement(element).doubleClick().perform();;
+	}
+	
+	public static void rightClick(WebElement element)
+	{
+		Actions act = new Actions(driver);
+		act.moveToElement(element).contextClick().perform();;
+	}
+	
 	public static String actionGetAttribute(WebElement element, String attributeName)
 	{
 		return element.getAttribute(attributeName);
