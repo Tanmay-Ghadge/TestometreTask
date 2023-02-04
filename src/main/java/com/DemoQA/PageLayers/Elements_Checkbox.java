@@ -87,16 +87,9 @@ public class Elements_Checkbox
 	@FindBy(xpath="//body/div[@id='app']/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/ol[1]/li[1]/ol[1]/li[2]/ol[1]/li[2]/span[1]/button[1]")
 	private WebElement documentOfficeArrow;
 	
-	
-	
-	
-	
-	
 //---------------------------------------------------
 	// Downloads
 	
-
-
 	@FindBy(xpath="//span[text()='Downloads']")
 	private WebElement DownloadsAllOptions;
 	
@@ -109,8 +102,29 @@ public class Elements_Checkbox
 	@FindBy(xpath="//body/div[@id='app']/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/ol[1]/li[1]/ol[1]/li[3]")
 	private WebElement downloadExpandedCollapse;
 	
+//-----------------------------------------------------------
+	//expand and collapse all
+	
+	@FindBy(xpath="//body/div[@id='app']/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/button[1]")
+	private WebElement expandALL;
+	
+	@FindBy(xpath="//body/div[@id='app']/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/button[2]")
+	private WebElement collapseALL;
+	
 //-------------------test method----------------------	
 	
+	public WebDriver getLocalDriver() {
+		return localDriver;
+	}
+
+	public WebElement getExpandALLButton() {
+		return expandALL;
+	}
+
+	public WebElement getCollapseALL() {
+		return collapseALL;
+	}
+
 	public WebElement getcheckboxDropdownOption() {
 		return checkboxDropdownOption;
 	}

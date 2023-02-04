@@ -22,12 +22,9 @@ public class CheckBoxTests extends TestBase
 		ActionDriver.scrollByDistance(0,400);
 		Thread.sleep(3000);
 	//	ActionDriver.jsClick(homepage.getelements());
-		ActionDriver.actionClick(homepage.getelements());
-		
-		
-		
+	//	ActionDriver.actionClick(homepage.getelements());
      	homepage.clickElement2();
-		//homepage.clickElement();
+		Thread.sleep(2000);
 		checkbox.getcheckboxDropdownOption().click();
 	}
 	
