@@ -2,6 +2,7 @@ package com.DemoQA.PageLayers;
 
 import java.util.List;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -48,10 +49,10 @@ public class Elements_WebTables
 	@FindBy(id="department")
 	private WebElement department;
 	
-	@FindBy(xpath="//button[@class='close']")
+	@FindBy(id="submit")
 	private WebElement submit;
 	
-	@FindBy(id="submit")
+	@FindBy(xpath="//button[@class='close']")
 	private WebElement closeRegistrationForm;
 	
 	@FindBy(xpath="//button[text()='Previous']")
@@ -141,10 +142,7 @@ public class Elements_WebTables
 	@FindBy(xpath="//div[@class='rt-tbody']/div[5]/div/div[7]/div/span[2]")
 	private WebElement row5Delete;
 	
-	
-	
 //***********************************************************************************************************	
-	
 	//getters
 	
 	public WebDriver getLocalDriver() {
@@ -292,6 +290,36 @@ public class Elements_WebTables
 		return registration;
 	}
 
+	public List <WebElement> getRowList(int rowNumber)
+	{
+		String xpath1="//div[@class='rt-tbody']/div["+rowNumber+"]/div/div";
+		By by=By.xpath(xpath1);
+		List <WebElement> rowList=localDriver.findElements(by);
+		
+		return rowList;
+	}
+	
+	public WebElement getRowEditButton(int rowNumber)
+	{
+		String xpath1="//div[@class='rt-tbody']/div["+rowNumber+"]/div/div[7]/div/span[1]";
+		By by=By.xpath(xpath1);
+		WebElement editButton=localDriver.findElement(by);
+		return editButton;
+	}
+	
+	public WebElement getRowDeleteButton(int rowNumber)
+	{
+		String xpath1="//div[@class='rt-tbody']/div["+rowNumber+"]/div/div[7]/div/span[2]";
+		By by=By.xpath(xpath1);
+		WebElement deleteButton=localDriver.findElement(by);
+		return deleteButton;
+	}
+	
+	
+	
+	
+	
+	
 	
 	
 }

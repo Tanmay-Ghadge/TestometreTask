@@ -32,16 +32,11 @@ public class TestBase
 		System.out.println("url opened="+url);
 	}
 	
-	
-	
-	
 	@AfterMethod
 	public void teardown()
 	{
-		System.out.println("quit method");
 		//driver.quit();
 		DriverFactory.getInstance().getDriver().quit();
-		
 	}
 	
 	

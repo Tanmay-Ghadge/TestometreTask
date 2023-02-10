@@ -7,6 +7,7 @@ import java.util.Iterator;
 
 import org.testng.ITestContext;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
 
 import com.DemoQA.Utility.ExcelLibrary;
 
@@ -26,7 +27,7 @@ public class Dataproviders extends ExcelLibrary
 		{
 		case "firstNameValidationNegative":
 		{ 
-			String excelPath="D:\\tanmay\\AJ Automation\\Test Data2.xlsx";
+			String excelPath="D:\\tanmay\\AJ Automation\\Test Data.xlsx";
 			list=readExcelRow(excelPath, "Form Data","First name-Negative");
 		};
 		return list.iterator();
@@ -52,10 +53,57 @@ public class Dataproviders extends ExcelLibrary
 		};
 		return list.iterator();
 
+		case "emailValidationPositive":
+		{ 
+			String excelPath="D:\\tanmay\\AJ Automation\\Test Data2.xlsx";
+			list=readExcelRow(excelPath, "Form Data","Email-Negative");
+		};
+		return list.iterator();
+		
+		case "emailValidationNegative":
+		{ 
+			String excelPath="D:\\tanmay\\AJ Automation\\Test Data2.xlsx";
+			list=readExcelRow(excelPath, "Form Data","Email-positive");
+		};
+		return list.iterator();
+		
+		case "phoneNumberValidationPositive":
+		{ 
+			String excelPath="D:\\tanmay\\AJ Automation\\Test Data2.xlsx";
+			list=readExcelRow(excelPath, "Form Data","Mobile number-Positive");
+		};
+		return list.iterator();
+		
+		case "phoneNumberValidationNegative":
+		{ 
+			String excelPath="D:\\tanmay\\AJ Automation\\Test Data2.xlsx";
+			list=readExcelRow(excelPath, "Form Data","Mobile number-Negative");
+		};
+		return list.iterator();
+		
+		case "getExceldatafortest":
+		{ 
+			String excelPath="D:\\tanmay\\AJ Automation\\Test Data.xlsx";
+			list=readExcelRow(excelPath, "Form Data","Mobile number-Negative");
+		};
+		return list.iterator();
+		
 		}
 		return null;
-
-		
-
 	}
+	
+	
+	@Test(dataProvider = "dataforFirstName")
+	public void getExceldatafortest(String[] list)
+	{
+
+	for(String lis:list)
+	{
+		System.out.println(lis);
+	}
+	
+	
+	}
+	
+	
 	}	

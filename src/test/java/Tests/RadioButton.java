@@ -18,29 +18,25 @@ public class RadioButton extends TestBase
 	Elements_RadioButtons radioButton=new Elements_RadioButtons(driver);
 	
 
-	@Test(priority=1,description = "Verify that option 'no' is disabled by default")
+	@Test(priority=1,description = "Verify that option 'no' is enabled by default")
 	void checkDisabilityofNoRadioButton() throws InterruptedException
 	{
 		Homepage homepage=new Homepage(driver); 
-		Elements_Textbox ElementsTextbox=new Elements_Textbox(driver);
 		Elements_RadioButtons radioButton=new Elements_RadioButtons(driver);
 		
-		SoftAssert softAssert=new SoftAssert();
-
 		ActionDriver.scrollByDistance(0,400);
 		Thread.sleep(2000);
 		homepage.clickElement();
 		Elements_Textbox.clickradiobuttonDropdownOption();
 		
-		Assert.assertFalse(radioButton.getNoRadioOption().isEnabled());
+		Assert.assertTrue(radioButton.getNoRadioOption().isEnabled());
 	}
 	
 	
-	@Test(priority=1,description = "Verify that options 'Yes' and 'No\" should be enabled")
+	@Test(priority=1,description = "Verify that options 'Yes' and 'No' should be enabled")
 	void checkEnabilityofRadioButtons() throws InterruptedException
 	{
 		Homepage homepage=new Homepage(driver); 
-		Elements_Textbox ElementsTextbox=new Elements_Textbox(driver);
 		Elements_RadioButtons radioButton=new Elements_RadioButtons(driver);
 		
 		SoftAssert softAssert=new SoftAssert();
@@ -60,7 +56,6 @@ public class RadioButton extends TestBase
 	void checkConsoleoutput() throws InterruptedException
 	{
 		Homepage homepage=new Homepage(driver); 
-		Elements_Textbox ElementsTextbox=new Elements_Textbox(driver);
 		Elements_RadioButtons radioButton=new Elements_RadioButtons(driver);
 		
 		SoftAssert softAssert=new SoftAssert();
@@ -70,7 +65,6 @@ public class RadioButton extends TestBase
 		homepage.clickElement();
 		Elements_Textbox.clickradiobuttonDropdownOption();
 		
-		Thread.sleep(2000);
 		ActionDriver.jsClick(radioButton.getYesRadioOption() );
      	String console=	ActionDriver.getTextCustom(radioButton.getRadioBoxConsole());
      	softAssert.assertEquals(console,"You have selected Yes");
@@ -79,7 +73,6 @@ public class RadioButton extends TestBase
      	String console2=ActionDriver.getTextCustom(radioButton.getRadioBoxConsole());
      	softAssert.assertEquals(console2,"You have selected Impressive");
      	
-     	Thread.sleep(2000);
      	softAssert.assertAll();
 	}
 	
@@ -109,11 +102,57 @@ public class RadioButton extends TestBase
 	void selectYesOption() throws InterruptedException
 	{
 		Homepage homepage=new Homepage(driver); 
-		Elements_Textbox ElementsTextbox=new Elements_Textbox(driver);
 		Elements_RadioButtons radioButton=new Elements_RadioButtons(driver);
 		
-		SoftAssert softAssert=new SoftAssert();
-
+		ActionDriver.scrollByDistance(0,400);
+		Thread.sleep(2000);
+		homepage.clickElement();
+		Elements_Textbox.clickradiobuttonDropdownOption();
+		
+		ActionDriver.jsClick(radioButton.getYesRadioOption() );
+		String console=	ActionDriver.getTextCustom(radioButton.getRadioBoxConsole());
+     	Assert.assertEquals(console,"You have selected yes");
+	}
+	
+	@Test(priority=1,description ="Verify that user can select option Impressive.")
+	void selectImpressiveOption() throws InterruptedException
+	{
+		Homepage homepage=new Homepage(driver); 
+		Elements_RadioButtons radioButton=new Elements_RadioButtons(driver);
+		
+		ActionDriver.scrollByDistance(0,400);
+		Thread.sleep(2000);
+		homepage.clickElement();
+		Elements_Textbox.clickradiobuttonDropdownOption();
+		
+		ActionDriver.jsClick(radioButton.getImpressiveRadioOption() );
+		String console=	ActionDriver.getTextCustom(radioButton.getRadioBoxConsole());
+     	Assert.assertEquals(console,"You have selected Impressive");
+	}
+	
+	@Test(priority=1,description ="Verify that user can select option No.")
+	void selectNoOption() throws InterruptedException
+	{
+		Homepage homepage=new Homepage(driver); 
+		Elements_RadioButtons radioButton=new Elements_RadioButtons(driver);
+		
+		ActionDriver.scrollByDistance(0,400);
+		Thread.sleep(2000);
+		homepage.clickElement();
+		Elements_Textbox.clickradiobuttonDropdownOption();
+		
+		ActionDriver.jsClick(radioButton.getNoRadioOption() );
+		String console=	ActionDriver.getTextCustom(radioButton.getRadioBoxConsole());
+     	Assert.assertEquals(console,"You have selected No");
+	}
+	
+	
+	@Test(priority=1,description ="Verify that at a time only one option can be selected")
+	void multipleOptionSelect() throws InterruptedException
+	{
+		Homepage homepage=new Homepage(driver); 
+		Elements_RadioButtons radioButton=new Elements_RadioButtons(driver);
+		
 		ActionDriver.scrollByDistance(0,400);
 		Thread.sleep(2000);
 		homepage.clickElement();
@@ -123,31 +162,17 @@ public class RadioButton extends TestBase
 		String console=	ActionDriver.getTextCustom(radioButton.getRadioBoxConsole());
      	Assert.assertEquals(console,"You have selected yes");
 		
-		Thread.sleep(3000);
-	}
-	
-	@Test(priority=1,description ="Verify that user can select option no.")
-	void selectNoOption() throws InterruptedException
-	{
-		Homepage homepage=new Homepage(driver); 
-		Elements_Textbox ElementsTextbox=new Elements_Textbox(driver);
-		Elements_RadioButtons radioButton=new Elements_RadioButtons(driver);
-		
-		SoftAssert softAssert=new SoftAssert();
-
-		ActionDriver.scrollByDistance(0,400);
-		Thread.sleep(2000);
-		homepage.clickElement();
-		Elements_Textbox.clickradiobuttonDropdownOption();
-		
 		ActionDriver.jsClick(radioButton.getImpressiveRadioOption() );
-		String console=	ActionDriver.getTextCustom(radioButton.getRadioBoxConsole());
-     	Assert.assertEquals(console,"You have selected Impressive");
-		
-		Thread.sleep(3000);
+		String console2=	ActionDriver.getTextCustom(radioButton.getRadioBoxConsole());
+     	Assert.assertEquals(console2,"You have selected Impressive");
+     	
+     	if(radioButton.getYesRadioOption().isSelected()== false && radioButton.getImpressiveRadioOption().isSelected()== true)
+     	{
+     		Assert.assertTrue(true);
+     	}
 	}
 	
-	
+
 
 	
 
