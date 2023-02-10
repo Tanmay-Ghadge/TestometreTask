@@ -252,6 +252,19 @@ public class ActionDriver extends TestBase
 		robot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
 		robot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
 	}
+	
+	public static void selectAllClear() throws AWTException
+	{
+		Robot robot=new Robot();
+		robot.mouseMove(50,50);
+		robot.keyPress(KeyEvent.VK_CONTROL);
+		robot.keyPress(KeyEvent.VK_A);
+		robot.keyRelease(KeyEvent.VK_CONTROL);
+		robot.keyRelease(KeyEvent.VK_A);
+		
+		robot.keyPress(KeyEvent.VK_BACK_SPACE);
+		robot.keyRelease(KeyEvent.VK_BACK_SPACE);
+	}
 
 	public static void browserBackwardBTN() throws AWTException
 	{
@@ -300,6 +313,38 @@ public class ActionDriver extends TestBase
 
 	}
 
+	public static boolean dropdownoptionsByValue(WebElement location,String optionToChoose)
+	{
+		boolean flag=false;
+		try
+		{
+			Select dropdown=new Select(location);
+			dropdown.selectByValue(optionToChoose);
+		}
+		catch(Exception e)
+		{
+			return false;
+		}
+		finally
+		{
+			if(flag==true)
+			{
+				System.out.println("dropdown Option-"+optionToChoose+" was chosen by li option");
+			}
+			else
+			{
+				System.out.println("dropdown Option-"+optionToChoose+" was NOT chosen by li option");
+			}
+
+		}
+		return flag;
+
+
+	}
+
+	
+	
+	
 	  public static boolean actionClick(WebElement elementToClick)
 	{
 		boolean flag=false;
@@ -422,7 +467,7 @@ public class ActionDriver extends TestBase
 		.keyDown(Keys.BACK_SPACE).perform();		
 	}
 
-
+	 
 
 
 }

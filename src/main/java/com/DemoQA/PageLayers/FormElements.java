@@ -1,5 +1,7 @@
 package com.DemoQA.PageLayers;
 
+import java.util.List;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -73,10 +75,61 @@ public class FormElements
 	@FindBy(xpath="//button[@id='submit']")
 	private WebElement submitButton;
 	
+	@FindBy(xpath="//select[@class='react-datepicker__month-select']")
+	private WebElement monthDropdown;
+	
+	@FindBy(xpath="//select[@class='react-datepicker__year-select']")
+	private WebElement yearDropdown;
+	
+	@FindBy(xpath="//div[@class='react-datepicker__month']/div/div")
+	private List <WebElement> datePicker;
+	
+	@FindBy(xpath="//div[@class='react-datepicker__day-names']/div")
+	private List <WebElement> dayNames;
+	
+	@FindBy(xpath="//button[text()='Next Month']")
+	private WebElement nextMonthButton;
+	
+	@FindBy(xpath="//button[text()='Previous Month']")
+	private WebElement previousMonthButton;
+	
+	@FindBy(xpath="//div[@class='react-datepicker__current-month react-datepicker__current-month--hasYearDropdown react-datepicker__current-month--hasMonthDropdown']")
+	private WebElement monthYear;
 	
 	
 	
-	
+
+	public List<WebElement> getDayNames() {
+		return dayNames;
+	}
+
+	public WebElement getNextMonthButton() {
+		return nextMonthButton;
+	}
+
+	public WebElement getPreviousMonthButton() {
+		return previousMonthButton;
+	}
+
+	public WebElement getMonthYear() {
+		return monthYear;
+	}
+
+	public WebElement getMonthDropdown() {
+		return monthDropdown;
+	}
+
+	public WebElement getYearDropdown() {
+		return yearDropdown;
+	}
+
+	public List<WebElement> getWeekDays() {
+		return dayNames;
+	}
+
+	public List<WebElement> getDatePicker() {
+		return datePicker;
+	}
 
 	public WebElement getFormDropdown() {
 		return formDropdown;
