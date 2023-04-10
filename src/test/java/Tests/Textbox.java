@@ -1,4 +1,4 @@
-package tests;
+package Tests;
 
 import java.awt.AWTException;
 import java.util.List;
